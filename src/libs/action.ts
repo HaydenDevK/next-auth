@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { connectDB } from "./db";
 import { User } from "./schema";
 import { hash } from "bcryptjs";
-import { signIn } from "@/auth";
+import { signIn, signOut } from "@/auth";
 
 // 회원가입
 export async function register(formData: FormData) {
@@ -64,4 +64,8 @@ export async function login(formData: FormData) {
 
 export async function githubLogin() {
   await signIn("github", { callbackUrl: "/" });
+}
+
+export async function logout() {
+  await signOut(); // auth 폴더에 있는거!
 }

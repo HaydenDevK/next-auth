@@ -1,3 +1,4 @@
+import { logout } from "@/libs/action";
 import Link from "next/link";
 
 export const metadata = {
@@ -26,6 +27,11 @@ export default function RootLayout({
             </li>
             <li>
               <Link href="/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <form action={logout}>
+                <button>Logout</button>
+              </form>
             </li>
           </ul>
         </div>
